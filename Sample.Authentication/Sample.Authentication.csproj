@@ -14,7 +14,6 @@
     <PackageReference Include="Dotnettency.AspNetCore" Version="2.0.0-alpha.139" />
     <PackageReference Include="Dotnettency.Container.Autofac" Version="2.0.0-alpha.139" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.1.1" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="3.0.0-dev-10240" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
   </ItemGroup>
