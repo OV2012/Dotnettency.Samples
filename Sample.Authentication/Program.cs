@@ -1,19 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
+using Serilog.Extensions.Logging;
+using Microsoft.Extensions.Logging;
 
 namespace Sample.Authentication
 {
     public class Program
     {
+
+
         public static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
@@ -31,8 +33,12 @@ namespace Sample.Authentication
 
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .ConfigureLogging((b)=> {
+                    b.AddSerilog(Log.Logger);
+                  //  b.AddConsole();
+                })
                 .UseUrls("http://*:5000", "http://*:5001", "http://*:5002", "http://*:5003", "http://*:5004")
-                .UseSerilog()
+               // .UseSerilog(providers: Providers)
                 .Build();
     }
 }
